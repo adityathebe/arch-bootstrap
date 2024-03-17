@@ -1,0 +1,39 @@
+#!/bin/env bash
+
+is_desktop=true
+
+sudo pacman -Syu
+
+sudo pacman -S base-devel linux linux-headers linux-firmware
+
+sudo pacman -S xorg-server xorg-init xorg-xrandr \
+  bspwm zsh neovim tmux rofi git sxhkd polybar nemo go \
+  dunst flameshot picom alacritty xset alacritty feh \
+  pasystray numlockx newsboat bottom eza bat
+
+## Install yay
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+yay -S redshift-gtk blueman-applet nm-applet brave-bin visual-studio-code-bin
+
+if [ "$is_desktop" = false ]; THEN
+  yay -S light
+fi
+  
+
+## Setup Configs
+git clone 'https://github.com/adityathebe/dotfiles' ~/dotfiles
+cp -r ~/dotfiles/.config/git ~/.config
+cp -r ~/dotfiles/.config/bspwm ~/.config
+cp -r ~/dotfiles/.config/polybar ~/.config
+cp -r ~/dotfiles/.config/newsboat ~/.config
+cp -r ~/dotfiles/.config/rofi ~/.config
+
+cp ~/dotfiles/.xinitrc ~/.xinitrc
+cp ~/dotfiles/.config/.aliases ~/.config/.aliases
+cp ~/dotfiles/.config/env ~/.config/env
+
+mkdir -p ~/.local/bin
+cp -r ~/dotfiles/.local/bin/statusbar ~/.local/bin/
