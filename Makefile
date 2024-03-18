@@ -4,5 +4,5 @@ boostrap:
 
 .PHONY: secrets
 secrets:
-	rsync -azvP ~/.ssh/config ~/.ssh/adityathebe desktop:~/.ssh/
+	rsync -azvP ~/.ssh/config ~/.ssh/adityathebe ~/.ssh/adityathebe.pub desktop:~/.ssh/
 	rsync -azvP ~/.config/secrets ~/.config/

@@ -21,7 +21,7 @@ cd ~
 yay -S xorg-server xorg-init xorg-xrandr xclip bspwm pasystray \
   rofi sxhkd polybar dunst flameshot picom xset feh \
   redshift-gtk blueman-applet nm-applet mpv nemo alacritty \
-  brave-bin visual-studio-code-bin slack-desktop \
+  brave-bin visual-studio-code-bin slack-desktop seahorse \
   gnome-keyring seahorse lxappearance telegram-desktop
 
 # CLI applications
@@ -84,10 +84,18 @@ git clone https://github.com/adityathebe/astronvim ~/.config/nvim/lua/user
 ###################
 mkdir -p ~/.local/share/fonts
 
-yay -S ttf-font-awesome ttf-nerd-fonts-symbols noto-fonts
+yay -S ttf-nerd-fonts-symbols
 
-wget 'https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip' /tmp/
-unzip /tmp/JetBrainsMono-2.304.zip -d ~/.local/share/fonts/JetBrainsMono
+cd /tmp
+wget 'https://use.fontawesome.com/releases/v5.15.4/fontawesome-free-5.15.4-desktop.zip'
+unzip fontawesome-free-5.15.4-desktop.zip -d ~/.local/share/fonts
+
+wget 'https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip'
+unzip JetBrainsMono-2.304.zip -d ~/.local/share/fonts/JetBrainsMono
+cd ~
+
+git clone 'https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts.git' ~/.local/share/fonts/SFPro --depth=1
+
 fc-cache -f -v
 
 #################
