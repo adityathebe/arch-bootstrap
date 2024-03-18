@@ -22,7 +22,7 @@ yay -S xorg-server xorg-init xorg-xrandr xclip bspwm pasystray \
   rofi sxhkd polybar dunst flameshot picom xset feh \
   redshift-gtk blueman-applet nm-applet mpv nemo alacritty \
   brave-bin visual-studio-code-bin slack-desktop \
-  gnome-keyring seahorse lxappearance
+  gnome-keyring seahorse lxappearance telegram-desktop
 
 # CLI applications
 yay -S tmux unzip go rust rust-analyzer newsboat bottom yazi wget \
@@ -89,5 +89,12 @@ yay -S ttf-font-awesome ttf-nerd-fonts-symbols noto-fonts
 wget 'https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip' /tmp/
 unzip /tmp/JetBrainsMono-2.304.zip -d ~/.local/share/fonts/JetBrainsMono
 fc-cache -f -v
+
+#################
+## Theme
+#################
+mkdir -p ~/.local/share/themes
+wget https://github.com/EliverLara/Nordic/releases/download/v2.2.0/Nordic-darker.tar.xz -O /tmp
+tar xf Nordic-darker.tar.xz -C ~/.local/share/themes/
 
 xrandr --output $primary_monitor --mode 2560x1440 --rate 164.83
