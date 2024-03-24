@@ -9,7 +9,7 @@ echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs5rFHygPS8uCK+LJ4XOpenVrGk6ZUzNLb6w9
 
 # Essentials
 sudo pacman -S base-devel linux linux-headers linux-firmware zsh git neovim \
-  pulseaudio curl numlockx 
+  pulseaudio curl numlockx cronie
 
 # Install yay
 git clone https://aur.archlinux.org/yay.gita --depth=1 /tmp/yay
@@ -27,10 +27,10 @@ yay -S xorg-server xorg-init xorg-xrandr xclip bspwm pasystray \
 # CLI applications
 yay -S tmux unzip go rust rust-analyzer newsboat bottom yazi wget \
   eza bat lsof atuin restic direnv zoxide fastfetch bandwhich less rsync \
-  lazygit
+  lazygit nix
   
 # Containers
-yay -S flux helm kubectl docker docker-compose lazydocker
+yay -S fluxcd helm kubectl docker docker-compose lazydocker
 
 # Set zsh as the default shell
 chsh -s $(which zsh)
@@ -106,3 +106,13 @@ wget https://github.com/EliverLara/Nordic/releases/download/v2.2.0/Nordic-darker
 tar xf Nordic-darker.tar.xz -C ~/.local/share/themes/
 
 xrandr --output $primary_monitor --mode 2560x1440 --rate 164.83
+
+###################
+## Services
+###################
+sudo systemctl start docker
+sudo usermod -aG docker $USER
+
+echo "========================"
+echo "Setup crontab"
+echo "========================"
