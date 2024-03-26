@@ -9,7 +9,7 @@ echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs5rFHygPS8uCK+LJ4XOpenVrGk6ZUzNLb6w9
 
 # Essentials
 sudo pacman -S base-devel linux linux-headers linux-firmware zsh git neovim \
-  pulseaudio curl numlockx cronie
+  pulseaudio curl numlockx cronie inetutils
 
 # Install yay
 git clone https://aur.archlinux.org/yay.gita --depth=1 /tmp/yay
@@ -30,7 +30,7 @@ yay -S tmux unzip go rust rust-analyzer newsboat bottom yazi wget \
   lazygit nix
   
 # Containers
-yay -S fluxcd helm kubectl docker docker-compose lazydocker
+yay -S fluxcd helm kubectl kustomize docker docker-compose lazydocker
 
 # Set zsh as the default shell
 chsh -s $(which zsh)
@@ -74,6 +74,7 @@ git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.local/sha
 # Tmux
 cp -r ~/dotfiles/.config/tmux ~/.config
 git clone https://github.com/tmux-plugins/tmux-sensible ~/.config/tmux/plugins/tmux-sensible --depth=1
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm --depth=1
 
 # Neovim
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim --depth=1
@@ -113,6 +114,11 @@ xrandr --output $primary_monitor --mode 2560x1440 --rate 164.83
 sudo systemctl start docker
 sudo usermod -aG docker $USER
 
+sudo systemctl start nix-daemon
+sudo usermod -aG nix-users $USER
+
 echo "========================"
 echo "Setup crontab"
+echo "Update nix channel"
+echo "nix-channel --update --verbose"
 echo "========================"
