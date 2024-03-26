@@ -27,7 +27,7 @@ yay -S xorg-server xorg-init xorg-xrandr xclip bspwm pasystray \
 # CLI applications
 yay -S tmux unzip go rust rust-analyzer newsboat bottom yazi wget \
   eza bat lsof atuin restic direnv zoxide fastfetch bandwhich less rsync \
-  lazygit nix
+  lazygit nix golangci-lint-bin jq yq
   
 # Containers
 yay -S fluxcd helm kubectl kustomize docker docker-compose lazydocker
@@ -118,7 +118,9 @@ sudo systemctl start nix-daemon
 sudo usermod -aG nix-users $USER
 
 echo "========================"
-echo "Setup crontab"
-echo "Update nix channel"
-echo "nix-channel --update --verbose"
+echo "TODO"
+echo "- Setup crontab"
+echo "- Update nix channel"
+echo "  nix-channel --update --verbose"
+echo "- Initialize tmux tpm (Press prefix + I (capital i, as in Install) to fetch the plugin)"
 echo "========================"
