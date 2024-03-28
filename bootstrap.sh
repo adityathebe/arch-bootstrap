@@ -27,10 +27,10 @@ yay -S xorg-server xorg-init xorg-xrandr xclip bspwm pasystray \
 # CLI applications
 yay -S tmux unzip go rust rust-analyzer newsboat bottom yazi wget \
   eza bat lsof atuin restic direnv zoxide fastfetch bandwhich less rsync \
-  lazygit nix golangci-lint-bin jq yq
+  lazygit nix golangci-lint-bin jq yq aria2c
   
 # Containers
-yay -S fluxcd helm kubectl kustomize docker docker-compose lazydocker
+yay -S fluxcd helm kubectl kubens kustomize docker docker-compose lazydocker
 
 # Set zsh as the default shell
 chsh -s $(which zsh)
@@ -43,24 +43,28 @@ fi
 ## Setup Configs
 ###################
 git clone 'https://github.com/adityathebe/dotfiles' ~/dotfiles --depth=1
+cp -r ~/dotfiles/.config/atuin ~/.config
 cp -r ~/dotfiles/.config/bspwm ~/.config
+cp -r ~/dotfiles/.config/dunst ~/.config
 cp -r ~/dotfiles/.config/fastfetch ~/.config
 cp -r ~/dotfiles/.config/git ~/.config
+cp -r ~/dotfiles/.config/mpv ~/.config
 cp -r ~/dotfiles/.config/newsboat ~/.config
 cp -r ~/dotfiles/.config/rofi ~/.config
+cp -r ~/dotfiles/.config/sxhkd ~/.config
+cp -r ~/dotfiles/.config/yazi ~/.config
 
-cp ~/dotfiles/.config/.aliases ~/.config/.aliases
+cp ~/dotfiles/.config/.aliases ~/.config/
 cp ~/dotfiles/.config/env ~/.config/env
 cp ~/dotfiles/.config/hacking_aliases.sh ~/.config/.aliases
 cp ~/dotfiles/.config/kube_aliases.sh ~/.config/.aliases
+cp ~/dotfiles/.config/redshift.conf ~/.config/
 cp ~/dotfiles/.xinitrc ~/.xinitrc
 
 # Alacritty
-cp -r ~/dotfiles/.config/alacritty ~/.config
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes --depth=1
 
 # Polybar
-cp -r ~/dotfiles/.config/polybar ~/.config
 mkdir -p ~/.local/bin
 cp -r ~/dotfiles/.local/bin/statusbar ~/.local/bin/
 
