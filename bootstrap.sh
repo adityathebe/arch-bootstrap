@@ -9,7 +9,7 @@ echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDs5rFHygPS8uCK+LJ4XOpenVrGk6ZUzNLb6w9
 
 # Essentials
 sudo pacman -S base-devel linux linux-headers linux-firmware zsh git neovim \
-  pulseaudio curl numlockx cronie inetutils
+  pulseaudio pulsemixer curl numlockx cronie inetutils
 
 # Install yay
 git clone https://aur.archlinux.org/yay.gita --depth=1 /tmp/yay
@@ -27,7 +27,7 @@ yay -S xorg-server xorg-init xorg-xrandr xclip bspwm pasystray \
 # CLI applications
 yay -S tmux unzip go rust rust-analyzer newsboat bottom yazi wget \
   eza bat lsof atuin restic direnv zoxide fastfetch bandwhich less rsync \
-  lazygit nix golangci-lint-bin jq yq aria2c
+  lazygit nix golangci-lint-bin jq go-yq aria2c
   
 # Containers
 yay -S fluxcd helm kubectl kubens kustomize docker docker-compose lazydocker

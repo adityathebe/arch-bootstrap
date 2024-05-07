@@ -5,4 +5,4 @@ nix-channel --update --verbose
 
 # I like to install all python CLIs using nix.
 nix-env -iA nixpkgs.pgcli nixpkgs.azure-cli nixpkgs.awscli \
-  nixpkgs.redshift
+  nixpkgs.redshift nixpkgs.yt-dlp
